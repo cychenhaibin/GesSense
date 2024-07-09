@@ -1,8 +1,61 @@
-const mySwitch = document.getElementById('mySwitch');
-const slider = document.querySelector('.slider');
-/*const switch = document.getElementsByClassName('.switch');*/
-slider.addEventListener('change', () => {
-    slider.classList.toggle('on', mySwitch.checked);
-    /*switch.style.backgroundColor = '#accbee'*/
-    slider.style.backgroundColor = '#fff'
-});
+var switchForm = {
+    switchValue1:1,
+    switchValue2:0,
+}
+//根据元素Id和switch开关值初始化组件
+function initSwitch(switchId,onOrOffValue){
+    var e = document.getElementById(switchId)
+    var switchOn = e.children[1]
+    var switchOff = e.children[3]
+    if(onOrOffValue == 0){
+        switchOff.className += " is-active"
+        e.className += " is-checked"
+        if(switchOn.className.indexOf('is-active')!=-1){
+            var classNameLen = switchOn.className.length
+            switchOn.className = switchOn.className.substring(0,classNameLen-10)
+        }
+        e.setAttribute('value',0)
+    }else{
+        switchOn.className += " is-active"
+        if(switchOff.className.indexOf('is-active')!=-1){
+            var classNameLen = switchOff.className.length
+            switchOff.className = switchOff.className.substring(0,classNameLen-10)
+        }
+        if(e.className.indexOf('is-checked')!=-1){
+            var classNameLen = e.className.length
+            e.className = e.className.substring(0,classNameLen-11)
+        }
+        e.setAttribute('value',1)
+    }
+}
+
+//初始化第一个switch开关
+initSwitch("switch-body1",switchForm.switchValue1)
+
+
+//第一个switch开关绑定鼠标点击事件
+document.getElementById("switch-body1").onclick=function(e){
+    switchClick(e.currentTarget.children[2])
+    switchForm.switchValue1 = document.getElementById('switch-body1').getAttribute('value')
+    console.log(switchForm.switchValue1)
+}
+
+
+function switchClick(e){
+    var switchOn = e.parentNode.children[1]
+    var switchOff = e.parentNode.children[3]
+    if(switchOn.className.indexOf('is-active')!=-1){
+        var classNameLen = switchOn.className.length
+        switchOn.className = switchOn.className.substring(0,classNameLen-10)
+        switchOff.className += " is-active"
+        e.parentNode.className += " is-checked"
+        e.parentNode.setAttribute('value',0)
+    }else{
+        var switchOffClassNameLen = switchOff.className.length
+        var switchClassNameLen = e.parentNode.className.length
+        switchOn.className += " is-active"
+        switchOff.className = switchOff.className.substring(0,switchOffClassNameLen-10)
+        e.parentNode.className = e.parentNode.className.substring(0,switchClassNameLen-11)
+        e.parentNode.setAttribute('value',1)
+    }
+}

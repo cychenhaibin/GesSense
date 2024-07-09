@@ -2,20 +2,40 @@ header h1 {
     padding-top: 50px;
     padding-left: 30px;
 }
+.border-one {
+    width: 100vw;
+    padding-top: 30px;
+    padding-bottom: 5px;
+}
 .border {
-    margin: 25px 15px 15px;
+    display: flex;
+    flex-wrap:wrap;
+    margin: 30px 25px 20px;
     background-color: #ffffff;
-    border-radius: 12px;
+    border-radius: 25px;
 }
 .border-two {
     margin: 15px;
-    border-radius: 12px;
+    width: 40%;
+    height: 40%;
+    border-radius: 25px;
     background-color: #accbee;
+}
+.shouShi {
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 50px;
+}
+.name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 button{
     border: none;
-    width: 60px;
-    background-color: #accbee;
+    height: 25px;
+    width: 70px;
+    background-color: blue;
     border-radius: 12px;
     color: #fff;
 }
@@ -24,23 +44,76 @@ button:focus {
     outline: none;
 }
 .switch {
+    padding-top: 20px;
+    padding-left: 55px;
+    padding-bottom: 13px;
+    display: inline-flex;
+    align-items: center;
     position: relative;
+    font-size: 14px;
+    line-height: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+.switch__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    margin: 0;
+}
+.switch.is-checked .switch__core {
+    border-color: #409eff;
+    background-color: #409eff;
+}
+.switch__core {
+    margin: 0;
     display: inline-block;
+    position: relative;
     width: 40px;
     height: 20px;
-    background-color: #fff;
+    border: 1px solid #dcdfe6;
+    outline: none;
     border-radius: 10px;
+    box-sizing: border-box;
+    background: #dcdfe6;
+    cursor: pointer;
+    transition: border-color .3s,background-color .3s;
+    vertical-align: middle;
 }
-.slider {
+.switch.is-checked .switch__core:after {
+    left: 100%;
+    margin-left: -17px;
+}
+
+.switch__core:after {
+    content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    background-color: #accbee;
-    border-radius: 50%;
-    transition: 0.2s;
+    top: 1px;
+    left: 1px;
+    border-radius: 100%;
+    transition: all .3s;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
 }
-.slider.on {
-    left: 20px;
+
+.switch__label {
+    transition: .2s;
+    height: 20px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    vertical-align: middle;
+    color: #303133;
+}
+.switch__label.is-active {
+    color: #409eff;
+}
+.switch__label--left {
+    margin-right: 10px;
+}
+.switch__label--right {
+    margin-left: 10px;
 }
