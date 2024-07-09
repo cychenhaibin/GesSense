@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .moving-element {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(#fc0, #f0c);
+            offset-path: path("M 0 0 L 100 100");
+            animation: move 2000ms infinite alternate ease-in-out;
+        }
+
+        @keyframes move {
+            0% {
+                offset-distance: 0%;
+            }
+            100% {
+                offset-distance: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="moving-element"></div>
+</body>
+</html>

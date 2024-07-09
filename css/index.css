@@ -1,0 +1,46 @@
+header h1 {
+    padding-top: 50px;
+    padding-left: 30px;
+}
+.border {
+    margin: 25px 15px 15px;
+    background-color: #ffffff;
+    border-radius: 12px;
+}
+.border-two {
+    margin: 15px;
+    border-radius: 12px;
+    background-color: #accbee;
+}
+button{
+    border: none;
+    width: 60px;
+    background-color: #accbee;
+    border-radius: 12px;
+    color: #fff;
+}
+button:focus {
+    border: none;
+    outline: none;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #accbee;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+.slider.on {
+    left: 20px;
+}
