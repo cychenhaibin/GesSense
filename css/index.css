@@ -1,29 +1,104 @@
 header h1 {
-    padding-top: 50px;
-    padding-left: 30px;
+    padding-top: 10px;
+    padding-left: 45px;
 }
-.border-one {
+.header {
+    padding-top: 25px;
+    padding-right: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+.header img {
+    padding: 3px;
+    width: 30px;
+    height: 30px;
+}
+.border-one,
+.border-six,
+.border-ten,
+.border-forth {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
     width: 100vw;
     padding-top: 30px;
     padding-bottom: 5px;
 }
+.border-one img {
+    padding: 0 5px 0 30px;
+    width: 30px;
+    height: 30px;
+}
+.border-one h4 {
+    width: 30px;
+    height: 30px;
+}
+.border-six img {
+    padding: 0 5px 0 30px;
+    width: 30px;
+    height: 30px;
+}
+.border-six h4 {
+    width: 30px;
+    height: 30px;
+}
+.border-ten img {
+    padding: 0 5px 0 30px;
+    width: 30px;
+    height: 30px;
+}
+.border-ten h4 {
+    width: 30px;
+    height: 30px;
+}
+.border-forth img {
+    padding: 0 5px 0 30px;
+    width: 30px;
+    height: 30px;
+}
+.border-forth h4 {
+    width: 30px;
+    height: 30px;
+}
 .border {
+    height: 400px;
     display: flex;
     flex-wrap:wrap;
-    margin: 30px 25px 20px;
+    margin: 30px 25px 0px 25px;
     background-color: #ffffff;
     border-radius: 25px;
+    overflow: auto;
 }
-.border-two {
-    margin: 15px;
+.border::-webkit-scrollbar {
+    display: none;
+}
+
+.border-two,
+.border-three,
+.border-four,
+.border-five,
+.border-seven,
+.border-eight,
+.border-nine,
+.border-eleven,
+.border-twelve,
+.border-thirteen,
+.border-fifth,
+.border-sixth,
+.border-seventh {
+    overflow: hidden;
+    margin: 16px;
     width: 40%;
-    height: 40%;
+    height: 32%;
     border-radius: 25px;
-    background-color: #accbee;
+    background-color: #D3DAE2;
+}
+.border-seventh {
+    margin-bottom: 30px;
 }
 .shouShi {
-    padding-top: 13px;
-    padding-bottom: 13px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     padding-left: 50px;
 }
 .name {
@@ -35,7 +110,7 @@ button{
     border: none;
     height: 25px;
     width: 70px;
-    background-color: blue;
+    background-color: #B2BEC7;
     border-radius: 12px;
     color: #fff;
 }
@@ -63,8 +138,8 @@ button:focus {
     margin: 0;
 }
 .switch.is-checked .switch__core {
-    border-color: #409eff;
-    background-color: #409eff;
+    border-color: #B2BEC7;
+    background-color: #B2BEC7;
 }
 .switch__core {
     margin: 0;
@@ -106,10 +181,10 @@ button:focus {
     font-weight: 500;
     cursor: pointer;
     vertical-align: middle;
-    color: #303133;
+    color: #B2BEC7;
 }
 .switch__label.is-active {
-    color: #409eff;
+    color: #B2BEC7;
 }
 .switch__label--left {
     margin-right: 10px;
@@ -117,3 +192,59 @@ button:focus {
 .switch__label--right {
     margin-left: 10px;
 }
+
+.footer {
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 30px 25px 0 25px;
+    background-color: #ffffff;
+    border-radius: 25px;
+}
+.footer-one {
+    text-align: center;
+    margin: 5px 0 0 30px;
+}
+.footer-one img {
+    padding: 5px 0;
+    width: 30px;
+    height: 30px;
+}
+.footer-one span {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+}
+.footer-two {
+    text-align: center;
+    margin: 5px 0 0 30px;
+}
+.footer-two img {
+    padding-top: 6px;
+    padding-bottom: 4px;
+    width: 30px;
+    height: 30px;
+}
+.footer-two span {
+    display: block;
+    text-align: center;
+
+    font-size: 12px;
+}
+.footer-three {
+    text-align: center;
+    margin: 5px 30px 0 30px;
+}
+.footer-three img {
+    padding: 5px 0;
+    width: 30px;
+    height: 30px;
+}
+.footer-three span {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+}
+
+
