@@ -1,0 +1,132 @@
+header h5 {
+    padding: 0.1875rem;
+	
+}
+
+header {
+    padding: 0.9375rem 0.625rem;
+    display: flex;
+    justify-content: space-between;
+	align-items: center;
+}
+header img {
+    padding: 0.1875rem;
+    width: 0.9375rem;
+    height: 0.9375rem;
+}
+.section-one {
+	padding: 0 0.625rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.section-one img {
+	width: 4.275rem;
+	height: 4.275rem;
+}
+#noSleep img{
+	height: 3.275rem!important;
+}
+#noSleep span {
+	padding: 0.8125rem;
+}
+.section-one span {
+	padding: 0.3125rem;
+	font-size: 0.4375rem;
+}
+.section-two {
+	height: 6.663rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 1.25rem 0.625rem 0 0.625rem;
+	background-color: #ffffff;
+	border-radius: 0.7125rem;
+	overflow: auto;
+}
+.huxi,.xinlv {
+	display: flex;
+	margin: 0.425rem 0 0.125rem 0;
+	width: 7.85rem;
+	height: 2.625rem;
+	background-color: #D3DAE2;
+	border-radius: 0.5125rem;
+}
+.huxi-one,.huxi-two,.xinlv-one,.xinlv-two {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 50%;
+}
+.number-one {
+	font-size: 0.8rem!important;
+}
+.number-two {
+	color: seagreen;
+	font-size: 0.8rem!important;
+}
+.huxi-one span {
+	font-size: 0.375rem;
+}
+.huxi-two span {
+	padding: 0.2175rem;
+	font-size: 0.375rem;
+}
+.xinlv-one span {
+	font-size: 0.375rem;
+}
+.xinlv-two span {
+	padding: 0.2175rem;
+	font-size: 0.375rem;
+}
+.footer {
+    height: 2.1875rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1.25rem 0.625rem 0 0.625rem;
+    background-color: #ffffff;
+    border-radius: 0.625rem;
+}
+.footer-one {
+    text-align: center;
+    margin: 0 0 0 0.9375rem;
+}
+.footer-one img {
+    width: 0.8125rem;
+    height: 0.8125rem;
+}
+.footer-one span {
+    display: block;
+    text-align: center;
+    font-size: 0.3125rem;
+}
+.footer-two {
+    text-align: center;
+    margin: 0 0 0 0.9375rem;
+}
+.footer-two img {
+    width: 0.8125rem;
+    height: 0.8125rem;
+}
+.footer-two span {
+    display: block;
+    text-align: center;
+    font-size: 0.3125rem;
+}
+.footer-three {
+    text-align: center;
+    margin: 0 0.9375rem;
+}
+.footer-three img {
+    
+    width: 0.8125rem;
+    height: 0.8125rem;
+}
+.footer-three span {
+    display: block;
+    text-align: center;
+    font-size: 0.3125rem;
+}

@@ -1,4 +1,4 @@
-var switchForm = {
+const switchForm = {
     switchValue1:1,
     switchValue2:0,
 }
@@ -159,3 +159,4 @@ function switchClick(e){
         e.parentNode.setAttribute('value',1)
     }
 }
+

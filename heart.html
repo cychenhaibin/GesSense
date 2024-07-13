@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="./css/common.css">
+		<link rel="stylesheet" href="./css/heart.css">
+	</head>
+
+	<body>
+		<div class="outer">
+			<header>
+				<h5>健康</h5>
+				<img src="img/lingdang.png" alt="" />
+			</header>
+			<section>
+				<div class="section-one" id="sleep">
+					<img src="img/nan.png"/>
+					<span>未睡眠</span>
+				</div>
+				<div class="section-two">
+					<div class="huxi">
+						<span class="huxi-one">
+							<span class="number-one">70</span>
+							<span>频率(次/分)</span>
+						</span>
+						<span class="huxi-two">
+							<span>正常呼吸频率</span>
+							<span>12~20次/分</span>
+						</span>
+					</div>
+					<div class="xinlv">
+						<span class="xinlv-one">
+							<span class="number-two">70</span>
+							<span>心率(次/分)</span>
+						</span>
+						<span class="xinlv-two">
+							<span>正常心率</span>
+							<span>60~100次/分</span>
+						</span>
+					</div>
+				</div>
+			</section>
+			
+			<footer>
+			    <div class="footer">
+			        <div class="footer-one" id="footer-one">
+			            <img src="./img/tablet.png">
+			            <span>设备</span>
+			        </div>
+			        <div class="footer-two" id="footer-two">
+			            <img src="./img/aixin.png">
+			            <span>健康</span>
+			        </div>
+			        <div class="footer-three" id="footer-three">
+			            <img src="./img/user.png">
+			            <span>我的</span>
+			        </div>
+			    </div>
+			</footer>
+		</div>
+		
+		<script src='js/jquery-1.11.min.js'></script>
+		<!--jquery弹出层插件-->
+		<script src='js/jquery.popup.min.js'></script>
+		<script src="./js/zepto.min.js"></script>
+		<script src="./js/flexible.js"></script>
+		<script src="./js/heart.js"></script>
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function () {
+				document.getElementById('footer-one').addEventListener('tap', function() {
+					mui.openWindow({
+						url:'index.html',
+						id:'index',
+						show:{
+							autoShow:true
+						},
+						waiting:{
+							autoShow:true,
+							title:'正在加载...'
+						}
+					})
+				})
+				document.getElementById('footer-three').addEventListener('tap', function() {
+					mui.openWindow({
+						url:'my.html',
+						id:'my',
+						show:{
+							autoShow:true
+						},
+						waiting:{
+							autoShow:true,
+							title:'正在加载...'
+						}
+					})
+				})
+				document.getElementById('sleep').addEventListener('tap', function() {
+					mui.openWindow({
+						url:'heartChange.html',
+						id:'heartChange',
+						show:{
+							autoShow:true
+						},
+						waiting:{
+							autoShow:true,
+							title:'正在加载...'
+						}
+					})
+				})
+			})
+			
+			
+		</script>
+	</body>
+
+</html>
