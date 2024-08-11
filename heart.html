@@ -122,8 +122,9 @@
 										const ziElement = document.querySelector('.zi');
 										ziElement.textContent = '睡眠中';
 										checkAndUpdateNumberTwo();
-										if (healthData == 0.0){
+										if (healthData == 0.0 || healthData == '~'){
 											document.querySelector('.number-one').innerText = '~';
+											document.querySelector('.number-two').innerText = '~';
 											imgElement.src = 'img/nan.png';
 											ziElement.textContent = '未睡眠';
 										}
