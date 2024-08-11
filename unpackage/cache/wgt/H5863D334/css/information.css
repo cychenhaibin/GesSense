@@ -1,0 +1,68 @@
+header h4 {
+	padding-top: 3.5rem;
+	padding-left: 1.25rem;
+}
+.border {
+    height: 8.5rem;
+    display: flex;
+    flex-wrap:wrap;
+    margin: 1.5rem 0.625rem 0 0.625rem;
+    background-color: #ffffff;
+    border-radius: 0.8125rem;
+    overflow: auto;
+}
+.mui-container {
+	margin: 0.325rem 1.0625rem 1.0625rem 0.7625rem;
+	width: 100%;
+	
+}
+.mui-textfield, .register{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 0.825rem;
+	width: 100%;
+}
+.mui-textfield input {
+	height: 0.625rem;
+	font-size: 0.385rem;
+	border-top-style: none;
+	border-left-style: none;
+	border-right-style: none;
+}
+#password {
+	margin-left: 0.1875rem;
+	width: 4.375rem;
+}
+.mui-textfield input:focus {
+	outline: none;
+	border-shadow: none;
+}
+.mui-textfield img {
+	width: 1.0375rem;
+	height: 1.0375rem;
+	
+}
+.mui-textfield button {
+	border: none;
+	height: 0.75rem;
+	width: 1.875rem;
+	background-color: #B2BEC7;
+	border-radius: 1.25rem;
+	color: #fff;
+	font-size: 0.3125rem;
+}
+.mui-btn {
+	border: none;
+	height: 1.25rem;
+	width: 100%;
+	margin-top: 0.635rem;
+	background-color: #B2BEC7;
+	border-radius: 1.25rem;
+	color: #fff;
+	font-size: 0.5125rem;
+}
+
+.register {
+	font-size: 0.4375rem;
+}

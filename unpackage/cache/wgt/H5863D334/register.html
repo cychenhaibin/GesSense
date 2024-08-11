@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/common.css" rel="stylesheet" />
+		<link href="css/register.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="outer">
+			<header>
+			    <h4>注册</h4>
+			</header>
+			<section>
+			    <div class="border">
+			        <div class="mui-container">
+						<form id="loginForm">
+						    <div class="mui-textfield">
+								<img src="img/yonghu.png" alt="" />
+						        <input type="text" id="username" placeholder="请输入用户名">
+						    </div>
+						    <div class="mui-textfield">
+								<img src="img/mima.png" alt="" />
+						        <input type="password" id="password" placeholder="请输入密码">
+						    </div>
+							<div class="mui-textfield">
+								<img src="img/mima.png" alt="" />
+							    <input type="password" id="re_password" placeholder="请再次输入密码">
+							</div>
+							<div class="mui-textfield">
+								<img src="img/youxiang.png" alt="" />
+							    <input type="text" id="email" placeholder="请输入邮箱">
+							</div>
+						    <button type="button" class="mui-btn mui-btn--raised" onclick="information()"><b>注册</b></button>
+						</form>
+					</div>
+			    </div>
+			</section>
+		</div>
+		<script src='js/jquery-1.11.min.js'></script>
+		<!--jquery弹出层插件-->
+		<script src='js/jquery.popup.min.js'></script>
+		<script src="./js/zepto.min.js"></script>
+		<script src="./js/flexible.js"></script>
+		<script src="js/mui.min.js"></script>
+		<!-- <script type="text/javascript">
+			mui.init();
+			function information() {
+			    const username = document.getElementById('username').value;
+			    const password = document.getElementById('password').value;
+			
+			    mui.ajax('http://dev-cn.your-api-server.com/api/v1/login', {
+			        data: {
+			            username: username,
+			            password: password
+			        },
+			        dataType: 'json',
+			        type: 'post',
+			        timeout: 10000,
+			        headers: {'Content-Type': 'application/json'},
+			        success: function(data) {
+			            if (data.success) {
+							mui.toast('登录成功',{ duration:'long', type:'div' });
+			                mui.openWindow({
+			                	url:'information.html',
+			                	id:'information',
+			                	show:{
+			                	    autoShow:true
+			                	},
+			                	waiting:{
+			                		autoShow:true,
+			                		title:'正在加载...'
+			                	}
+			                })
+			            } else {
+							mui.toast('登录失败：' + data.message,{ duration:'long', type:'div' });
+			                
+			            }
+			        },
+			        error: function(xhr, type, errorThrown) {
+						mui.toast('请求失败：' + type,{ duration:'long', type:'div' });
+			            
+			        }
+			    });
+			}
+			function information(){
+				mui.openWindow({
+					url:'information.html',
+					id:'information',
+					show:{
+					    autoShow:true
+					},
+					extras:{
+						
+					}
+					waiting:{
+						autoShow:true,
+						title:'正在加载...'
+					}
+				})
+			}
+		</script> -->
+		<script type="text/javascript">
+		    mui.init();
+		
+		    function information() {
+		        // 获取输入字段的值
+		        var username = document.getElementById('username').value;
+		        var password = document.getElementById('password').value; // 假设这是第一个密码输入框的ID
+				var re_password = document.getElementById('re_password').value; // 假设这是第一个密码输入框的ID
+		        var email = document.getElementById('email').value; // 邮箱输入框的ID
+		
+		        // 对获取的值进行URL编码
+		        var encodedUsername = encodeURIComponent(username);
+		        var encodedPassword = encodeURIComponent(password);
+				var encodedRe_password = encodeURIComponent(re_password);
+		        var encodedEmail = encodeURIComponent(email);
+		
+		        // 构造包含查询参数的URL
+		        var url = 'information.html?username=' + encodedUsername + 
+		                  '&password=' + encodedPassword + '&re_password=' + encodedRe_password +
+		                  '&email=' + encodedEmail;
+		
+		        // 打开新窗口并传递参数
+		        mui.openWindow({
+		            url: url,
+		            id: 'information',
+		            show: {
+		                autoShow: true
+		            },
+		            waiting: {
+		                autoShow: true,
+		                title: '正在加载...'
+		            }
+		        });
+		    }
+		</script>
+	</body>
+
+</html>

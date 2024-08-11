@@ -1,0 +1,81 @@
+section {
+	margin: 9.25rem 1.875rem;
+	
+}
+.section {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.section p {
+	padding: 4.125rem 0 1.9375rem;
+	font-size: 1.25rem;
+	color: gray;
+}
+.section p {
+	font-size: 1.25rem;
+	
+}
+.redio-outer {
+	display: flex;
+}
+.radio-sex {
+  position: relative;
+  display: inline!important;
+  margin: 12px;
+}
+ 
+.radio-sex input {
+  vertical-align: middle;
+  /* 前面三行代码是为了让radio单选按钮与文字对齐 */
+  width: 20px;
+  height: 20px;
+  appearance: none; /*清楚默认样式*/
+  -webkit-appearance: none;
+  opacity: 0;
+  outline: none;
+  /* 注意不能设置为display:none*/
+}
+ 
+.radio-sex label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  /*注意层级关系，如果不把label层级设为最低，会遮挡住input而不能单选*/
+  width: 20px;
+  height: 20px;
+  border: 1px solid #3582e9;
+  border-radius: 100%;
+}
+.radio-sex input[type="radio"]:checked + label {
+  background: #3582e9;
+}
+ 
+.radio-sex input[type="radio"]:checked + label::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 2px;
+  width: 5px;
+  height: 12px;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  transform: rotate(45deg);
+}
+.radio-sex span{
+    vertical-align: middle;
+}
+
+
+button {
+	border: none;
+	height: 2.25rem;
+	width: 30%;
+	margin-top: 5.08rem;
+	background-color: #B2BEC7;
+	border-radius: 1.25rem;
+	color: #fff;
+	font-size: 0.9125rem;
+}

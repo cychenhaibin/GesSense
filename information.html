@@ -21,17 +21,18 @@
 						<form id="loginForm">
 						    <div class="mui-textfield">
 								<img src="img/yonghu.png" alt="" />
-						        <input type="text" id="username" placeholder="请输入监护人姓名">
+						        <input type="text" id="peoplename" placeholder="请输入监护人姓名" value="">
 						    </div>
 						    <div class="mui-textfield">
 								<img src="img/mima.png" alt="" />
-						        <input type="password" id="tel" placeholder="请输入手机号">
+						        <input type="text" id="tel" placeholder="请输入手机号" value="">
 						    </div>
 							<div class="mui-textfield">
-							    <input type="password" id="password" placeholder="请输入验证码">
+							    <input type="text" id="captcha" placeholder="请输入验证码" value="">
 								<button>发送</button>
 							</div>
-						    <button type="button" class="mui-btn mui-btn--raised" onclick="login()">注册</button>
+						    <!-- <button type="button" id="registerBtn" class="mui-btn mui-btn--raised" onclick="login()">注册</button> -->
+							<button type="button" id="registerBtn" class="mui-btn mui-btn--raised" onclick="register()">注册</button>
 						</form>
 					</div>
 			    </div>
@@ -43,7 +44,7 @@
 		<script src="./js/zepto.min.js"></script>
 		<script src="./js/flexible.js"></script>
 		<script src="js/mui.min.js"></script>
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			mui.init();
 			function login() {
 			    const username = document.getElementById('username').value;
@@ -60,7 +61,7 @@
 			        headers: {'Content-Type': 'application/json'},
 			        success: function(data) {
 			            if (data.success) {
-							mui.toast('登录成功',{ duration:'long', type:'div' });
+							mui.toast('注册成功',{ duration:'long', type:'div' });
 			                mui.openWindow({
 			                	url:'login.html',
 			                	id:'login',
@@ -96,6 +97,95 @@
 					}
 				})
 			}
+		</script> -->
+		<script type="text/javascript">
+			mui.init();
+			var peoplename = document.getElementById('peoplename').value;
+			var tel = document.getElementById('tel').value;
+			var captcha = document.getElementById('captcha').value;
+			
+			// 使用URLSearchParams解析URL查询参数
+			var urlParams = new URLSearchParams(window.location.search);
+			
+			// 获取传递的参数值
+			var username = urlParams.get('username');
+			var password = urlParams.get('password');
+			var re_password = urlParams.get('re_password');
+			var email = urlParams.get('email');
+						
+			console.log('Received username:', username);
+			console.log('Received password:', password);
+			console.log('Received re_password:', re_password);
+			console.log('Received email:', email);
+			console.log('Received peoplename:', peoplename);
+			console.log('Received tel:', tel);
+			console.log('Received captcha:', captcha);
+			
+			// 为注册按钮添加点击事件
+			function register() {
+				console.log('Received username:', username);
+				console.log('Received password:', password);
+				console.log('Received re_password:', re_password);
+				console.log('Received email:', email);
+				console.log('Received peoplename:', peoplename);
+				console.log('Received tel:', tel);
+				console.log('Received captcha:', captcha);
+				var userData = {
+				    username: username,
+				    password: password,
+				    re_password: re_password,
+				    email: email,
+					peoplename: peoplename,
+					tel: tel,
+					captcha: captcha,
+				};				
+				// 检查两次密码是否一致
+				if (userData.password !== userData.re_password) {
+					console.log('222');
+					
+				    mui.toast('两次输入的密码不一致', { duration: 'long', type: 'div' });
+				    return;
+				}
+								
+				if (userData.password == userData.re_password) {
+					console.log('333')
+					// 发送注册请求
+					mui.ajax('http://74.48.160.188:8888/api/v1/signup', {
+					    data: userData,
+					    dataType: 'json',
+					    type: 'post',
+					    timeout: 10000,
+					    headers: {'Content-Type': 'application/json'},
+					    success: function(data) {
+					        if (data.success) {
+					            mui.toast('注册成功', { duration: 'long', type: 'div' });
+					            // 注册成功后的操作，例如跳转到登录页面
+					            mui.openWindow({
+					                url: 'login.html',
+					                id: 'login',
+					                show: {
+					                    autoShow: true
+					                },
+					                waiting: {
+					                    autoShow: true,
+					                    title: '正在加载...'
+					                }
+					            });
+					        } else {
+								console.log('注册失败');
+					            mui.toast('注册失败：' + data.message, { duration: 'long', type: 'div' });
+					        }
+					    },
+					    error: function(xhr, type, errorThrown) {
+					        mui.toast('请求失败：' + type, { duration: 'long', type: 'div' });
+							console.log('请求失败');
+							console.error("打印状态码和状态文本:", xhr.status, xhr.statusText);
+					    }
+					});
+				}
+			}	
+			
+		    
 		</script>
 	</body>
 

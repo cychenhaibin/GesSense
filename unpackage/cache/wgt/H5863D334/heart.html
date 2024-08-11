@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="./css/common.css">
+		<link rel="stylesheet" href="./css/heart.css">
+	</head>
+
+	<body>
+		<div class="outer">
+			<header>
+				<h5>健康</h5>
+				<img src="img/lingdang.png" alt="" />
+			</header>
+			<section>
+				<div class="section-one" id="sleep">
+					<img src="img/nan.png"  id="picute"/>
+					<span class="zi">未睡眠</span>
+				</div>
+				<div class="section-two">
+					<div class="huxi">
+						<span class="huxi-one">
+							<span class="number-one">~</span>
+							<span>频率(次/分)</span>
+						</span>
+						<span class="huxi-two">
+							<span>正常呼吸频率</span>
+							<span>12~20次/分</span>
+						</span>
+					</div>
+					<div class="xinlv">
+						<span class="xinlv-one">
+							<span class="number-two">~</span>
+							<span>心率(次/分)</span>
+						</span>
+						<span class="xinlv-two">
+							<span>正常心率</span>
+							<span>60~100次/分</span>
+						</span>
+					</div>
+				</div>
+			</section>
+			
+			<footer>
+			    <div class="footer">
+			        <div class="footer-one" id="footer-one">
+			            <img src="./img/tablet.png">
+			            <span><b>设备</b></span>
+			        </div>
+			        <div class="footer-two" id="footer-two">
+			            <img src="./img/aixin.png">
+			            <span><b>健康</b></span>
+			        </div>
+			        <div class="footer-three" id="footer-three">
+			            <img src="./img/user.png">
+			            <span><b>我的</b></span>
+			        </div>
+			    </div>
+			</footer>
+		</div>
+		
+		<script src='js/jquery-1.11.min.js'></script>
+		<!--jquery弹出层插件-->
+		<script src='js/jquery.popup.min.js'></script>
+		<script src="./js/zepto.min.js"></script>
+		<script src="./js/flexible.js"></script>
+		<script src="./js/heart.js"></script>
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function () {
+				function feachData(){
+					mui.ajax('http://74.48.160.188:8888/api/v1/health', {
+					    type: 'get', // 假设API需要POST请求
+					    dataType: 'json', // 假设API返回的数据格式是JSON
+						headers:{
+							'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4NTE3NDEzMTA0NTU4MDgsInVzZXJuYW1lIjoicm9zeXJhaW4iLCJpc3MiOiJ3b2FuanUiLCJleHAiOjE3NDY1NDA5MDd9.cYpAHVJ1BATfLWifLeUd-3yWXWL6XZFcGficHpQM7Ac'
+						},
+					    success: function(response) {
+					        // 打印整个响应对象以进行调试
+					        console.log('服务器响应：', response.data);
+					
+					        // 检查响应状态码
+					        if (response.code === 1000 && response.msg === 'success') {
+					            // 检查response对象中是否包含data属性，并且data不是一个undefined
+					            if (response.data && typeof response.data === 'object') {
+					                // 从返回的数据中获取'health'字段的值
+					                var healthData = response.data.health;
+					                var num = Number(healthData).toFixed(1);
+					                // 检查healthData是否存在且不是undefined
+					                if (healthData !== undefined && healthData !== '0.0') {
+					                    // 更新页面元素
+					                    document.querySelector('.number-one').innerText = num;
+					                    console.log('health数据获取成功：', healthData);
+										const imgElement = document.getElementById('picute');
+										imgElement.src = 'img/a-297724.png';
+										const ziElement = document.querySelector('.zi');
+										ziElement.textContent = '睡眠中';
+										if (healthData == 0.0){
+											document.querySelector('.number-one').innerText = '~';
+											imgElement.src = 'img/nan.png';
+											ziElement.textContent = '未睡眠';
+										}
+					                } else {
+					                    console.error('设备未开启');
+					                }
+					            } else {
+					                console.error('响应数据格式不正确或data属性未定义');
+					            }
+					        } else {
+								console.error('接口返回错误：', response.msg);
+								if(response.msg == '需要登录'){
+									mui.openWindow({
+										url:'login.html',
+										id:'login',
+										show:{
+										    autoShow:true
+										},
+										waiting:{
+											autoShow:true,
+											title:'正在加载...'
+										}
+									})
+								}
+					            
+					        }
+					    },
+					    error: function(xhr, type, error) {
+							var errorText = xhr.responseText;
+					        // 打印错误信息
+					        console.error('请求失败：', errorText);
+					        // 可以在这里提供用户反馈或执行其他错误处理逻辑
+					    }
+					});
+				}
+				setInterval(feachData, 3000);
+				document.getElementById('footer-one').addEventListener('tap', function() {
+					mui.openWindow({
+						url:'index.html',
+						id:'index',
+						show:{
+							autoShow:true
+						},
+						waiting:{
+							autoShow:true,
+							title:'正在加载...'
+						}
+					})
+				})
+				document.getElementById('footer-three').addEventListener('tap', function() {
+					mui.openWindow({
+						url:'my.html',
+						id:'my',
+						show:{
+							autoShow:true
+						},
+						waiting:{
+							autoShow:true,
+							title:'正在加载...'
+						}
+					})
+				})
+				// document.getElementById('sleep').addEventListener('tap', function() {
+				// 	mui.openWindow({
+				// 		url:'heartChange.html',
+				// 		id:'heartChange',
+				// 		show:{
+				// 			autoShow:true
+				// 		},
+				// 		waiting:{
+				// 			autoShow:true,
+				// 			title:'正在加载...'
+				// 		}
+				// 	})
+				// })
+			})
+			
+			
+		</script>
+	</body>
+
+</html>

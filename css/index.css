@@ -139,6 +139,7 @@ button:focus {
     line-height: 0.75rem;
     height: 0.625rem;
     vertical-align: middle;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 .switch__input {
     position: absolute;
@@ -184,6 +185,7 @@ button:focus {
 }
 
 .footer {
+	/* position: fixed; */
     height: 2.1875rem;
     display: flex;
     justify-content: space-around;

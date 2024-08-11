@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="./css/common.css">
+		<link rel="stylesheet" href="./css/my.css">
+	</head>
+
+	<body>
+		<div class="outer">
+			<header>
+				<h5>我的</h5>
+				<img src="img/setting.png" alt="" />
+			</header>
+			<section>
+				<div class="section-my">
+					<div class="section-my-in">
+						<img src="img/yonghutouxiang.png" alt="" />
+						<span>老张</span>
+					</div>
+					<img src="img/youjiantou.png" alt="" />
+				</div>
+				
+				<div class="section-body">
+					<div class="section-body-list">
+						<img src="img/yonghu.png" alt="" />
+						<div class="information">
+							<div>监护人姓名：</div>
+							<div>小七</div>
+						</div>
+						<button>修改</button>
+					</div>
+					<div class="section-body-list">
+						<img src="img/zhongguohangtiantubiaoheji-weizhuanlunkuo-.png" alt="" />
+						<div class="information">
+							<div>监护人电话：</div>
+							<div>小七</div>
+						</div>
+						<button>修改</button>
+					</div>
+					<div class="section-body-list">
+						<img src="img/youxiang.png" alt="" />
+						<div class="information">
+							<div>监护人邮箱：</div>
+							<div>小七</div>
+						</div>
+						<button>修改</button>
+					</div>
+				</div>
+				<div class="section-bottom">
+					<div>关于我们</div>
+					<div>联系我们</div>
+				</div>
+			</section>
+			
+			<footer>
+			    <div class="footer">
+			        <div class="footer-one" id="footer-one">
+			            <img src="./img/tablet.png">
+			            <span><b>设备</b></span>
+			        </div>
+			        <div class="footer-two" id="footer-two">
+			            <img src="./img/aixin.png">
+			            <span><b>健康</b></span>
+			        </div>
+			        <div class="footer-three" id="footer-three">
+			            <img src="./img/user.png">
+			            <span><b>我的</b></span>
+			        </div>
+			    </div>
+			</footer>
+		</div>
+		
+		<script src='js/jquery-1.11.min.js'></script>
+		<!--jquery弹出层插件-->
+		<script src='js/jquery.popup.min.js'></script>
+		<script src="./js/zepto.min.js"></script>
+		<script src="./js/flexible.js"></script>
+		<script src="./js/my.js"></script>
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function () {
+				document.getElementById('footer-one').addEventListener('tap', function() {
+						mui.openWindow({
+							url:'index.html',
+							id:'index',
+							show:{
+								autoShow:true
+							},
+							waiting:{
+								autoShow:true,
+								title:'正在加载...'
+							}
+						})
+				})
+				
+				document.getElementById('footer-two').addEventListener('tap', function() {
+						mui.openWindow({
+							url:'heart.html',
+							id:'heart',
+							show:{
+								autoShow:true
+							},
+							waiting:{
+								autoShow:true,
+								title:'正在加载...'
+							}
+						})
+				})
+				
+			})
+		</script>
+	</body>
+
+</html>

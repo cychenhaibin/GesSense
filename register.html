@@ -29,13 +29,13 @@
 						    </div>
 							<div class="mui-textfield">
 								<img src="img/mima.png" alt="" />
-							    <input type="password" id="password" placeholder="请再次输入密码">
+							    <input type="password" id="re_password" placeholder="请再次输入密码">
 							</div>
 							<div class="mui-textfield">
 								<img src="img/youxiang.png" alt="" />
-							    <input type="password" id="password" placeholder="请输入邮箱">
+							    <input type="text" id="email" placeholder="请输入邮箱">
 							</div>
-						    <button type="button" class="mui-btn mui-btn--raised" onclick="information()">注册</button>
+						    <button type="button" class="mui-btn mui-btn--raised" onclick="information()"><b>注册</b></button>
 						</form>
 					</div>
 			    </div>
@@ -47,7 +47,7 @@
 		<script src="./js/zepto.min.js"></script>
 		<script src="./js/flexible.js"></script>
 		<script src="js/mui.min.js"></script>
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			mui.init();
 			function information() {
 			    const username = document.getElementById('username').value;
@@ -94,12 +94,50 @@
 					show:{
 					    autoShow:true
 					},
+					extras:{
+						
+					}
 					waiting:{
 						autoShow:true,
 						title:'正在加载...'
 					}
 				})
 			}
+		</script> -->
+		<script type="text/javascript">
+		    mui.init();
+		
+		    function information() {
+		        // 获取输入字段的值
+		        var username = document.getElementById('username').value;
+		        var password = document.getElementById('password').value; // 假设这是第一个密码输入框的ID
+				var re_password = document.getElementById('re_password').value; // 假设这是第一个密码输入框的ID
+		        var email = document.getElementById('email').value; // 邮箱输入框的ID
+		
+		        // 对获取的值进行URL编码
+		        var encodedUsername = encodeURIComponent(username);
+		        var encodedPassword = encodeURIComponent(password);
+				var encodedRe_password = encodeURIComponent(re_password);
+		        var encodedEmail = encodeURIComponent(email);
+		
+		        // 构造包含查询参数的URL
+		        var url = 'information.html?username=' + encodedUsername + 
+		                  '&password=' + encodedPassword + '&re_password=' + encodedRe_password +
+		                  '&email=' + encodedEmail;
+		
+		        // 打开新窗口并传递参数
+		        mui.openWindow({
+		            url: url,
+		            id: 'information',
+		            show: {
+		                autoShow: true
+		            },
+		            waiting: {
+		                autoShow: true,
+		                title: '正在加载...'
+		            }
+		        });
+		    }
 		</script>
 	</body>
 

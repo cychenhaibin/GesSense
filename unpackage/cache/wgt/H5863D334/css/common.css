@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.outer{
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to top, #fff 0%, #b5d7ee 100%);
+	overflow: hidden;
+}
+/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+

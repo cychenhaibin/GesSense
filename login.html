@@ -42,46 +42,89 @@
 		<script src='js/jquery.popup.min.js'></script>
 		<script src="./js/zepto.min.js"></script>
 		<script src="./js/flexible.js"></script>
-		<script src="js/mui.min.js"></script>
+		<script src="js/mui.js"></script>
 		<script type="text/javascript">
 			mui.init()
 			function login() {
-			    const username = document.getElementById('username').value;
-			    const password = document.getElementById('password').value;
+			    // 获取用户名和密码
+			    var username = document.getElementById('username').value;
+			    var password = document.getElementById('password').value;
+				console.log(username);
+				console.log(password)
+			    // 验证输入是否为空
+			    if (username === '' || password === '') {
+					//console.log('用户名或密码不能为空')
+			        mui.toast('用户名或密码不能为空');
+			        return;
+			    }
 			
-			    mui.ajax('http://dev-cn.your-api-server.com/api/v1/login', {
-			        data: {
-			            username: username,
-			            password: password
-			        },
-			        dataType: 'json',
-			        type: 'post',
-			        timeout: 10000,
-			        headers: {'Content-Type': 'application/json'},
-			        success: function(data) {
-			            if (data.success) {
-							mui.toast('登录成功',{ duration:'long', type:'div' });
-			                mui.openWindow({
-			                	url:'index.html',
-			                	id:'index',
-			                	show:{
-			                	    autoShow:true
-			                	},
-			                	waiting:{
-			                		autoShow:true,
-			                		title:'正在加载...'
-			                	}
-			                })
-			            } else {
-							mui.toast('登录失败：' + data.message,{ duration:'long', type:'div' });
-			                
-			            }
-			        },
+			    // 发送登录请求
+				mui.ajax({
+					url: 'http://74.48.160.188:8888/api/v1/login', 
+					data: {
+						username: username,
+						password: password
+					},
+					dataType: 'json',
+					type: 'post',
+					timeout: 10000,
+					headers: {
+						"Content-Type": "application/json"
+					},
+					success: function(response) {
+						if (response.msg == 'success') {
+							console.log('成功')
+							mui.toast('登录成功');
+							mui.openWindow({
+								url:'index.html',
+								id:'index',
+								show:{
+									autoShow:true
+								},
+								waiting:{
+									autoShow:true,
+									title:'正在加载...'
+								}
+							})
+						} else {
+							mui.toast('登录失败：' + response.message);
+						}
+					},
+				
 			        error: function(xhr, type, errorThrown) {
-						mui.toast('请求失败：' + type,{ duration:'long', type:'div' });
-			            
+						console.error('Ajax error:', type, errorThrown); // 打印错误信息
+			            // 处理错误逻辑
+			            mui.toast('请求失败，请稍后再试');
 			        }
 			    });
+			 // mui.ajax({
+			 //     url: 'http://74.48.160.188:8888/api/v1/login', 
+			 //     data: JSON.stringify({
+			 //         username: username,
+			 //         password: password
+			 //     }),
+			 //     dataType: 'json',
+			 //     type: 'post',
+			 //     timeout: 10000,
+			 //     headers: {
+			 //         "Content-Type": "application/json"
+			 //     },
+			 //     success: function(response) {
+			 //         console.log('Response:', response); // 打印response对象
+			 //         if (response.msg == 'success') {
+			 //             console.log('登录成功'); // 登录成功的日志
+			 //             mui.toast('登录成功');
+			 //             // 打开新页面的代码...
+			 //         } else {
+			 //             console.error('登录失败：', response.message); // 登录失败的日志
+			 //             mui.toast('登录失败：' + response.message);
+			 //         }
+			 //     },
+			 //     error: function(xhr, type, errorThrown) {
+			 //         console.error('Ajax error:', type, errorThrown); // 打印错误信息
+			 //         mui.toast('请求失败，请稍后再试');
+			 //     }
+			 // });
 			}
 			function register(){
 				mui.openWindow({
@@ -96,19 +139,19 @@
 					}
 				})
 			}
-			function login(){
-				mui.openWindow({
-					url:'index.html',
-					id:'index',
-					show:{
-					    autoShow:true
-					},
-					waiting:{
-						autoShow:true,
-						title:'正在加载...'
-					}
-				})
-			}
+			// function login(){
+			// 	mui.openWindow({
+			// 		url:'index.html',
+			// 		id:'index',
+			// 		show:{
+			// 		    autoShow:true
+			// 		},
+			// 		waiting:{
+			// 			autoShow:true,
+			// 			title:'正在加载...'
+			// 		}
+			// 	})
+			// }
 		</script>
 	</body>
 
