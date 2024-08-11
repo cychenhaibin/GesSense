@@ -73,6 +73,27 @@
 		<script type="text/javascript">
 			mui.init();
 			mui.plusReady(function () {
+				
+				// 定义一个随机函数，生成一个指定范围内的随机数
+				function getRandomNumber(min, max) {
+				  return parseFloat((Math.random() * (max - min + 1)) + min).toFixed(1);
+				}
+				
+				// 检查.number-one是否已经被赋值，并设置一个定时器
+				function checkAndUpdateNumberTwo() {
+				  var numberOne = document.querySelector('.number-one').innerText;
+				  // 检查.number-one是否已经被赋值，并且值不是'~'
+				  if (numberOne !== '~' && numberOne !== '0.0') {
+				    console.log('.number-one 已经被赋值：', numberOne);
+				    // 设置一个2秒的定时器来更新.number-two
+				    setTimeout(function() {
+				      // 随机生成一个数并赋值给.number-two
+				      var randomNumber = getRandomNumber(12, 20); // 假设随机数范围是12到20
+				      document.querySelector('.number-two').innerText = randomNumber;
+				      console.log('.number-two 更新为随机数：', randomNumber);
+				    }, 2000); // 2秒后执行
+				  }
+				}
 				function feachData(){
 					mui.ajax('http://74.48.160.188:8888/api/v1/health', {
 					    type: 'get', // 假设API需要POST请求
@@ -100,6 +121,7 @@
 										imgElement.src = 'img/a-297724.png';
 										const ziElement = document.querySelector('.zi');
 										ziElement.textContent = '睡眠中';
+										checkAndUpdateNumberTwo();
 										if (healthData == 0.0){
 											document.querySelector('.number-one').innerText = '~';
 											imgElement.src = 'img/nan.png';
@@ -138,6 +160,7 @@
 					});
 				}
 				setInterval(feachData, 3000);
+				
 				document.getElementById('footer-one').addEventListener('tap', function() {
 					mui.openWindow({
 						url:'index.html',
